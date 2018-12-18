@@ -1,0 +1,54 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+.table-wrapper {
+    width: 1024px;
+    display: inline-block;
+    }
+
+.table-wrapper table {
+    margin: 0 auto;
+    table-layout: fixed;
+    box-shadow: 0 0 0 1px rgba(16,22,26,.4);
+}
+
+.table-container .table-wrapper table tbody td {
+    background-color: #293742;
+}
+
+.table-wrapper table .online-column {
+    text-align: center;
+}
+
+.table {
+    margin: 40px 0;
+    height: 515px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.filters .bp3-label {
+    margin-right: 10px;
+}
+
+.filters .label {
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.filters > div {
+    display: flex;
+}
+
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,14 @@
+.pagination {
+    display: inline-flex;
+}
+
+.pagination button {
+    margin: 3px;
+}
+
+.pages-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}

@@ -1,0 +1,73 @@
+{
+  "name": "poe-ladder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron/main.js",
+  "browserslist": [
+    "last 1 version"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js --mode development",
+    "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js --mode production",
+    "eslint": "./node_modules/.bin/eslint --fix ./src",
+    "pack": "electron-builder"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.0.0",
+    "electron": "^3.0.12",
+    "electron-builder": "^20.38.3",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "express": "^4.16.4",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^3.10.0",
+    "classnames": "^2.2.6",
+    "moment": "^2.23.0",
+    "moment-duration-format": "^2.2.2",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "build": {
+    "appId": "com.poeLadder.app",
+    "productName": "Poe Ladder",
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "electron/icon.ico"
+    }
+  }
+}

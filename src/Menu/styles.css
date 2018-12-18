@@ -1,0 +1,7 @@
+.no-select {
+    user-select: none;
+}
+
+.no-select button:focus {
+    outline: none;
+}
