@@ -2,7 +2,7 @@
 
 **Electron application for viewing the Path of Exile ladder.**
 
-![](public/Screenshot.png?raw=true)
+![](public/Screenshot_1.png?raw=true)
 
 **To Use.**
 
