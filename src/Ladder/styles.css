@@ -6,7 +6,7 @@
 .table-wrapper {
     width: 1024px;
     display: inline-block;
-    }
+}
 
 .table-wrapper table {
     margin: 0 auto;
@@ -25,6 +25,15 @@
 .table {
     margin: 40px 0;
     height: 515px;
+}
+
+.table-wrapper table .hard [data-dead='dead'] td:not(.online-column) {
+    color: rgba(191,204,214,.5);
+}
+
+.table-wrapper table .character-name span {
+    color: darkred;
+    padding-left: 5px;
 }
 
 .filters {

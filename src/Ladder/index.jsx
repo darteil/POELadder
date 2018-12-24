@@ -19,6 +19,7 @@ export default class Ladder extends Component {
       dataLoaded: false,
       countRecords: 10,
       currentEvent: 'Betrayal',
+      hardcoreEvent: false,
       currentClass: 'all',
       currentPage: 1
     };
@@ -51,9 +52,6 @@ export default class Ladder extends Component {
           dataLoaded: true,
           countRecords: Math.ceil(data.total / 15)
         });
-      })
-      .catch((error) => {
-        console.error(error);
       });
   }
 
@@ -66,8 +64,14 @@ export default class Ladder extends Component {
 
   selectEvent(event) {
     const selectedEvent = event.target.value;
+    const hardcoreEvent = selectedEvent === 'Hardcore+Betrayal'
+      || selectedEvent === 'SSF+Betrayal+HC'
+      || selectedEvent === 'Hardcore'
+      || selectedEvent === 'SSF+Hardcore';
+
     this.setState({
       currentEvent: selectedEvent,
+      hardcoreEvent,
       currentPage: 1
     }, () => { this.refreshTable(); });
   }
@@ -143,17 +147,23 @@ export default class Ladder extends Component {
                         <th>Experience</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody className={this.state.hardcoreEvent ? styles.hard : ''}>
                       {
                         this.state.dataLoaded
                         && this.state.data.entries.map(entry => (
-                          <tr key={entry.rank}>
+                          <tr key={entry.rank} data-dead={entry.dead ? 'dead' : 'alive'}>
                             <td className={styles['online-column']}>
                               <Icon icon={entry.online ? 'endorsed' : 'remove'} />
                             </td>
                             <td>{entry.rank}</td>
                             <td>{entry.account.name}</td>
-                            <td>{entry.character.name}</td>
+                            <td className={styles['character-name']}>
+                              {entry.character.name}
+                              {
+                                this.state.hardcoreEvent
+                                && <span>{entry.dead ? '(dead)' : ''}</span>
+                              }
+                            </td>
                             <td>{entry.character.class}</td>
                             <td>{entry.character.level}</td>
                             <td>{entry.character.experience}</td>
