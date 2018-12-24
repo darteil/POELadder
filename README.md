@@ -17,7 +17,7 @@ npm start
 # Run in browser
 npm run dev
 
-# Create portable exe ("release" folder)
+# Create release ("release" folder)
 npm run pack
 ```
 
