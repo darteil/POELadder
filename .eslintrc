@@ -18,13 +18,5 @@
     "spaced-comment": 0,
     "react/destructuring-assignment": 0,
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-  },
-  "extends": ["airbnb", "plugin:react/recommended"],
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.common.js"
-      }
-    }
   }
 }
