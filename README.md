@@ -2,7 +2,7 @@
 
 **Electron application for viewing the Path of Exile ladder.**
 
-![](http://darteil-projects.ru/static/images/robot-civ-clicker.png)
+![](http://darteil-projects.ru/static/images/poe-ladder.png)
 
 **To Use.**
 
