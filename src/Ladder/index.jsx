@@ -18,7 +18,7 @@ export default class Ladder extends Component {
       data: [],
       dataLoaded: false,
       countRecords: 10,
-      currentEvent: 'Betrayal',
+      currentEvent: 'Synthesis',
       hardcoreEvent: false,
       currentClass: 'all',
       currentPage: 1
@@ -64,8 +64,8 @@ export default class Ladder extends Component {
 
   selectEvent(event) {
     const selectedEvent = event.target.value;
-    const hardcoreEvent = selectedEvent === 'Hardcore+Betrayal'
-      || selectedEvent === 'SSF+Betrayal+HC'
+    const hardcoreEvent = selectedEvent === 'Hardcore+Synthesis'
+      || selectedEvent === 'SSF+Synthesis+HC'
       || selectedEvent === 'Hardcore'
       || selectedEvent === 'SSF+Hardcore';
 

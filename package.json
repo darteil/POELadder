@@ -1,6 +1,6 @@
 {
   "name": "poe-ladder",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "electron/main.js",
   "browserslist": [

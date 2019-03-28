@@ -1,19 +1,19 @@
 const eventsList = [
   {
-    value: 'Betrayal',
-    text: 'Betrayal'
+    value: 'Synthesis',
+    text: 'Synthesis'
   },
   {
-    value: 'Hardcore+Betrayal',
-    text: 'Hardcore Betrayal'
+    value: 'Hardcore+Synthesis',
+    text: 'Hardcore Synthesis'
   },
   {
-    value: 'SSF+Betrayal',
-    text: 'SSF Betrayal'
+    value: 'SSF+Synthesis',
+    text: 'SSF Synthesis'
   },
   {
-    value: 'SSF+Betrayal+HC',
-    text: 'SSF Betrayal HC'
+    value: 'SSF+Synthesis+HC',
+    text: 'SSF Synthesis HC'
   },
   {
     value: 'Standard',
