@@ -7,7 +7,7 @@
     "max-len": 0,
     "no-restricted-syntax": 0,
     "no-param-reassign": 0,
-    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "import/no-unresolved": 0,
     "react/forbid-prop-types": 0,
     "comma-dangle": ["error", "never"],
     "jsx-a11y/aria-role": 0,
@@ -17,6 +17,6 @@
     "jsx-a11y/label-has-for": 0,
     "spaced-comment": 0,
     "react/destructuring-assignment": 0,
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": 0
   }
 }
