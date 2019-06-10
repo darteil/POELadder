@@ -1,6 +1,6 @@
 {
   "name": "poe-ladder",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "electron/main.js",
   "browserslist": [
@@ -13,8 +13,8 @@
     "eslint": "./node_modules/.bin/eslint --fix ./src",
     "pack": "./node_modules/.bin/electron-builder"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Romanov Yurii",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
@@ -27,7 +27,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.0.0",
     "electron": "^3.0.12",
-    "electron-builder": "^20.38.3",
+    "electron-builder": "^20.43.0",
     "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
