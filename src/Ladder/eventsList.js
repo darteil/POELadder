@@ -1,35 +1,35 @@
 const eventsList = [
   {
-    value: 'Synthesis',
-    text: 'Synthesis'
+    value: "Legion",
+    text: "Legion"
   },
   {
-    value: 'Hardcore+Synthesis',
-    text: 'Hardcore Synthesis'
+    value: "Hardcore+Legion",
+    text: "Hardcore Legion"
   },
   {
-    value: 'SSF+Synthesis',
-    text: 'SSF Synthesis'
+    value: "SSF+Legion",
+    text: "SSF Legion"
   },
   {
-    value: 'SSF+Synthesis+HC',
-    text: 'SSF Synthesis HC'
+    value: "SSF+Legion+HC",
+    text: "SSF Legion HC"
   },
   {
-    value: 'Standard',
-    text: 'Standard'
+    value: "Standard",
+    text: "Standard"
   },
   {
-    value: 'Hardcore',
-    text: 'Hardcore'
+    value: "Hardcore",
+    text: "Hardcore"
   },
   {
-    value: 'SSF+Standard',
-    text: 'SSF Standard'
+    value: "SSF+Standard",
+    text: "SSF Standard"
   },
   {
-    value: 'SSF+Hardcore',
-    text: 'SSF Hardcore'
+    value: "SSF+Hardcore",
+    text: "SSF Hardcore"
   }
 ];
 

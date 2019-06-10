@@ -1,5 +1,5 @@
-const { app, BrowserWindow, Menu } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, Menu } = require("electron");
+const path = require("path");
 
 let mainWindow;
 
@@ -10,29 +10,29 @@ function createWindow() {
     minWidth: 1200,
     minHeight: 900,
     center: true,
-    title: 'LabyrinthEditor',
+    title: "LabyrinthEditor",
     resizable: false,
-    icon: path.join(__dirname, './icon.png')
+    icon: path.join(__dirname, "./icon.png")
   });
 
-  mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+  mainWindow.loadFile(path.join(__dirname, "../dist/index.html"));
   // mainWindow.webContents.openDevTools();
-  mainWindow.on('closed', () => {
+  mainWindow.on("closed", () => {
     mainWindow = null;
   });
   const MenuTemplate = [];
   Menu.setApplicationMenu(Menu.buildFromTemplate(MenuTemplate));
 }
 
-app.on('ready', createWindow);
+app.on("ready", createWindow);
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
-app.on('activate', () => {
+app.on("activate", () => {
   if (mainWindow === null) {
     createWindow();
   }
