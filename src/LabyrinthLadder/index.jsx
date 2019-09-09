@@ -19,7 +19,7 @@ export default class LabyrinthLadder extends Component {
       data: [],
       dataLoaded: false,
       countRecords: 10,
-      currentEvent: "Legion",
+      currentEvent: "Blight",
       currentLabType: 1,
       currentPage: 1
     };

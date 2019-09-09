@@ -17,7 +17,7 @@ export default class Ladder extends Component {
       data: [],
       dataLoaded: false,
       countRecords: 10,
-      currentEvent: "Legion",
+      currentEvent: "Blight",
       hardcoreEvent: false,
       currentClass: "all",
       currentPage: 1
@@ -73,8 +73,8 @@ export default class Ladder extends Component {
   selectEvent(event) {
     const selectedEvent = event.target.value;
     const hardcoreEvent =
-      selectedEvent === "Hardcore+Legion" ||
-      selectedEvent === "SSF+Legion+HC" ||
+      selectedEvent === "Hardcore+Blight" ||
+      selectedEvent === "SSF+Blight+HC" ||
       selectedEvent === "Hardcore" ||
       selectedEvent === "SSF+Hardcore";
 

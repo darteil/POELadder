@@ -1,19 +1,19 @@
 const eventsList = [
   {
-    value: "Legion",
-    text: "Legion"
+    value: "Blight",
+    text: "Blight"
   },
   {
-    value: "Hardcore+Legion",
-    text: "Hardcore Legion"
+    value: "Hardcore+Blight",
+    text: "Hardcore Blight"
   },
   {
-    value: "SSF+Legion",
-    text: "SSF Legion"
+    value: "SSF+Blight",
+    text: "SSF Blight"
   },
   {
-    value: "SSF+Legion+HC",
-    text: "SSF Legion HC"
+    value: "SSF+Blight+HC",
+    text: "SSF Blight HC"
   },
   {
     value: "Standard",
