@@ -1,5 +1,7 @@
 # POE Ladder
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/darteil/POELadder/blob/master/LICENSE.md) [![GitHub release](https://img.shields.io/github/release/darteil/POELadder)](https://github.com/darteil/POELadder/releases)
+
 **Electron application for viewing the Path of Exile ladder.**
 
 ![](http://darteil-projects.ru/static/images/poe-ladder.png)
