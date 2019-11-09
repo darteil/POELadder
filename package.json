@@ -13,7 +13,7 @@
     "eslint": "./node_modules/.bin/eslint --fix ./src",
     "pack": "./node_modules/.bin/electron-builder"
   },
-  "author": "Romanov Yurii",
+  "author": "Romanov Yuri",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.5.0",
