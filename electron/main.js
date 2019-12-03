@@ -10,7 +10,7 @@ function createWindow() {
     minWidth: 1200,
     minHeight: 900,
     center: true,
-    title: "LabyrinthEditor",
+    title: "PoeLadder",
     resizable: false,
     icon: path.join(__dirname, "./icon.png")
   });
@@ -20,8 +20,8 @@ function createWindow() {
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
-  const MenuTemplate = [];
-  Menu.setApplicationMenu(Menu.buildFromTemplate(MenuTemplate));
+
+  Menu.setApplicationMenu(null);
 }
 
 app.on("ready", createWindow);
