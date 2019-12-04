@@ -1,45 +1,32 @@
 /* global fetch */
-import React, { Component, Fragment } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button, Spinner, Icon } from "@blueprintjs/core";
 import classNames from "classnames";
 import Header from "../Header";
 import Pagination from "../Pagination";
+import Table from "./Table";
 import styles from "./styles.css";
 
 import eventsList from "./eventsList";
 import classesList from "./classesList";
 
-export default class Ladder extends Component {
-  constructor(props) {
-    super(props);
+const Ladder = () => {
+  const [payload, setPayload] = useState({
+    data: [],
+    dataLoaded: false,
+    countRecords: 10
+  });
 
-    this.state = {
-      data: [],
-      dataLoaded: false,
-      countRecords: 10,
-      currentEvent: "Blight",
-      hardcoreEvent: false,
-      currentClass: "all",
-      currentPage: 1
-    };
+  const [filter, setFilter] = useState({
+    isHardcore: false,
+    currentClass: "all",
+    currentPage: 1,
+    currentEvent: "Blight"
+  });
 
-    this.fetchData = this.fetchData.bind(this);
-    this.changePage = this.changePage.bind(this);
-    this.selectEvent = this.selectEvent.bind(this);
-    this.refreshTable = this.refreshTable.bind(this);
-    this.selectCharacterClass = this.selectCharacterClass.bind(this);
-  }
-
-  componentDidMount() {
-    this.fetchData(
-      this.state.currentEvent,
-      this.state.currentClass,
-      this.state.currentPage * 15 - 15
-    );
-  }
-
-  fetchData(eventId, classValue, offset) {
-    this.setState({
+  const fetchData = (eventId, classValue, offset) => {
+    setPayload({
+      ...payload,
       dataLoaded: false
     });
 
@@ -51,182 +38,137 @@ export default class Ladder extends Component {
     fetch(URL)
       .then(response => response.json())
       .then(data => {
-        this.setState({
+        setPayload({
           data,
           dataLoaded: true,
           countRecords: Math.ceil(data.total / 15)
         });
       });
-  }
+  };
 
-  changePage(pageNumber) {
-    this.setState({
+  useEffect(() => {
+    refreshTable();
+  }, [filter]);
+
+  const changePage = pageNumber => {
+    setFilter({
+      ...filter,
       currentPage: pageNumber
     });
-    this.fetchData(
-      this.state.currentEvent,
-      this.state.currentClass,
-      pageNumber * 15 - 15
-    );
-  }
+  };
 
-  selectEvent(event) {
+  const selectEvent = event => {
     const selectedEvent = event.target.value;
-    const hardcoreEvent =
+    const isHardcore =
       selectedEvent === "Hardcore+Blight" ||
       selectedEvent === "SSF+Blight+HC" ||
       selectedEvent === "Hardcore" ||
       selectedEvent === "SSF+Hardcore";
 
-    this.setState(
-      {
-        currentEvent: selectedEvent,
-        hardcoreEvent,
-        currentPage: 1
-      },
-      () => {
-        this.refreshTable();
-      }
-    );
-  }
+    setFilter({
+      ...filter,
+      currentEvent: selectedEvent,
+      isHardcore,
+      currentPage: 1
+    });
+  };
 
-  selectCharacterClass(event) {
-    const characterClass = event.target.value;
-    this.setState(
-      {
-        currentClass: characterClass,
-        currentPage: 1
-      },
-      () => {
-        this.refreshTable();
-      }
-    );
-  }
+  const selectCharacterClass = event => {
+    setFilter({
+      ...filter,
+      currentClass: event.target.value,
+      currentPage: 1
+    });
+  };
 
-  refreshTable() {
-    this.fetchData(
-      this.state.currentEvent,
-      this.state.currentClass,
-      this.state.currentPage * 15 - 15
+  const refreshTable = () => {
+    fetchData(
+      filter.currentEvent,
+      filter.currentClass,
+      filter.currentPage * 15 - 15
     );
-  }
+  };
 
-  render() {
-    return (
-      <Fragment>
-        <Header>Ladder</Header>
-        <div className={styles["table-container"]}>
-          <div className={styles["table-wrapper"]}>
-            <div className={styles.filters}>
-              <div>
-                <label
-                  htmlFor="event-select"
-                  className={classNames("bp3-label", styles.label)}
-                >
-                  Event
-                  <div className="bp3-select">
-                    <select
-                      id="event-select"
-                      value={this.state.currentEvent}
-                      onChange={this.selectEvent}
-                    >
-                      {eventsList.map(event => (
-                        <option key={event.value} value={event.value}>
-                          {event.text}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </label>
-                <label
-                  htmlFor="class-select"
-                  className={classNames("bp3-label", styles.label)}
-                >
-                  Class
-                  <div className="bp3-select">
-                    <select
-                      id="class-select"
-                      value={this.state.currentClass}
-                      onChange={this.selectCharacterClass}
-                    >
-                      {classesList.map(classCharacter => (
-                        <option
-                          key={classCharacter.value}
-                          value={classCharacter.value}
-                        >
-                          {classCharacter.text}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </label>
-              </div>
-              <Button icon="refresh" onClick={this.refreshTable}>
-                Refresh
-              </Button>
-            </div>
-            <div
-              className={classNames(
-                styles.table,
-                this.state.dataLoaded ? "" : styles.loading
-              )}
-            >
-              {!this.state.dataLoaded && (
-                <div>
-                  <Spinner intent="Primary" size={100} />
-                </div>
-              )}
-              {this.state.dataLoaded && (
-                <table className="bp3-html-table bp3-html-table-bordered bp3-html-table-condensed bp3-interactive bp3-small">
-                  <thead>
-                    <tr>
-                      <th>Online</th>
-                      <th>Rank</th>
-                      <th>Account</th>
-                      <th>Character</th>
-                      <th>Class</th>
-                      <th>Level</th>
-                      <th>Experience</th>
-                    </tr>
-                  </thead>
-                  <tbody
-                    className={this.state.hardcoreEvent ? styles.hard : ""}
+  console.log("render");
+
+  return (
+    <>
+      <Header>Ladder</Header>
+      <div className={styles["table-container"]}>
+        <div className={styles["table-wrapper"]}>
+          <div className={styles.filters}>
+            <div>
+              <label
+                htmlFor="event-select"
+                className={classNames("bp3-label", styles.label)}
+              >
+                Event
+                <div className="bp3-select">
+                  <select
+                    id="event-select"
+                    value={filter.currentEvent}
+                    onChange={selectEvent}
                   >
-                    {this.state.dataLoaded &&
-                      this.state.data.entries.map(entry => (
-                        <tr
-                          key={entry.rank}
-                          data-dead={entry.dead ? "dead" : "alive"}
-                        >
-                          <td className={styles["online-column"]}>
-                            <Icon icon={entry.online ? "endorsed" : "remove"} />
-                          </td>
-                          <td>{entry.rank}</td>
-                          <td>{entry.account.name}</td>
-                          <td className={styles["character-name"]}>
-                            {entry.character.name}
-                            {this.state.hardcoreEvent && (
-                              <span>{entry.dead ? "(dead)" : ""}</span>
-                            )}
-                          </td>
-                          <td>{entry.character.class}</td>
-                          <td>{entry.character.level}</td>
-                          <td>{entry.character.experience}</td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              )}
+                    {eventsList.map(event => (
+                      <option key={event.value} value={event.value}>
+                        {event.text}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </label>
+              <label
+                htmlFor="class-select"
+                className={classNames("bp3-label", styles.label)}
+              >
+                Class
+                <div className="bp3-select">
+                  <select
+                    id="class-select"
+                    value={filter.currentClass}
+                    onChange={selectCharacterClass}
+                  >
+                    {classesList.map(classCharacter => (
+                      <option
+                        key={classCharacter.value}
+                        value={classCharacter.value}
+                      >
+                        {classCharacter.text}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </label>
             </div>
-            <Pagination
-              margin={2}
-              page={this.state.currentPage}
-              count={this.state.countRecords}
-              onPageChange={this.changePage}
-            />
+            <Button icon="refresh" onClick={refreshTable}>
+              Refresh
+            </Button>
           </div>
+          <div
+            className={classNames(
+              styles.table,
+              payload.dataLoaded ? "" : styles.loading
+            )}
+          >
+            {!payload.dataLoaded && (
+              <div>
+                <Spinner intent="Primary" size={100} />
+              </div>
+            )}
+            {payload.dataLoaded && (
+              <Table isHardcore={filter.isHardcore} data={payload.data} />
+            )}
+          </div>
+          <Pagination
+            margin={2}
+            page={filter.currentPage}
+            count={payload.countRecords}
+            onPageChange={changePage}
+          />
         </div>
-      </Fragment>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};
+
+export default Ladder;
