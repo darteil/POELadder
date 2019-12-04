@@ -1,6 +1,6 @@
 /* global fetch */
-import React, { useState, useEffect, useCallback } from "react";
-import { Button, Spinner, Icon } from "@blueprintjs/core";
+import React, { useState, useEffect } from "react";
+import { Button, Spinner, Card, Elevation } from "@blueprintjs/core";
 import classNames from "classnames";
 import Header from "../Header";
 import Pagination from "../Pagination";
@@ -12,22 +12,22 @@ import classesList from "./classesList";
 
 const Ladder = () => {
   const [payload, setPayload] = useState({
-    data: [],
-    dataLoaded: false,
-    countRecords: 10
+    data: {},
+    loaded: false,
+    records: 10
   });
 
   const [filter, setFilter] = useState({
     isHardcore: false,
-    currentClass: "all",
-    currentPage: 1,
-    currentEvent: "Blight"
+    class: "all",
+    page: 1,
+    event: "Blight"
   });
 
   const fetchData = (eventId, classValue, offset) => {
     setPayload({
       ...payload,
-      dataLoaded: false
+      loaded: false
     });
 
     const URL =
@@ -40,10 +40,14 @@ const Ladder = () => {
       .then(data => {
         setPayload({
           data,
-          dataLoaded: true,
-          countRecords: Math.ceil(data.total / 15)
+          loaded: true,
+          records: Math.ceil(data.total / 15)
         });
       });
+  };
+
+  const refreshTable = () => {
+    fetchData(filter.event, filter.class, filter.page * 15 - 15);
   };
 
   useEffect(() => {
@@ -53,7 +57,7 @@ const Ladder = () => {
   const changePage = pageNumber => {
     setFilter({
       ...filter,
-      currentPage: pageNumber
+      page: pageNumber
     });
   };
 
@@ -67,106 +71,98 @@ const Ladder = () => {
 
     setFilter({
       ...filter,
-      currentEvent: selectedEvent,
+      event: selectedEvent,
       isHardcore,
-      currentPage: 1
+      page: 1
     });
   };
 
   const selectCharacterClass = event => {
     setFilter({
       ...filter,
-      currentClass: event.target.value,
-      currentPage: 1
+      class: event.target.value,
+      page: 1
     });
   };
-
-  const refreshTable = () => {
-    fetchData(
-      filter.currentEvent,
-      filter.currentClass,
-      filter.currentPage * 15 - 15
-    );
-  };
-
-  console.log("render");
 
   return (
     <>
       <Header>Ladder</Header>
-      <div className={styles["table-container"]}>
-        <div className={styles["table-wrapper"]}>
-          <div className={styles.filters}>
-            <div>
-              <label
-                htmlFor="event-select"
-                className={classNames("bp3-label", styles.label)}
-              >
-                Event
-                <div className="bp3-select">
-                  <select
-                    id="event-select"
-                    value={filter.currentEvent}
-                    onChange={selectEvent}
-                  >
-                    {eventsList.map(event => (
-                      <option key={event.value} value={event.value}>
-                        {event.text}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </label>
-              <label
-                htmlFor="class-select"
-                className={classNames("bp3-label", styles.label)}
-              >
-                Class
-                <div className="bp3-select">
-                  <select
-                    id="class-select"
-                    value={filter.currentClass}
-                    onChange={selectCharacterClass}
-                  >
-                    {classesList.map(classCharacter => (
-                      <option
-                        key={classCharacter.value}
-                        value={classCharacter.value}
-                      >
-                        {classCharacter.text}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </label>
-            </div>
-            <Button icon="refresh" onClick={refreshTable}>
-              Refresh
-            </Button>
-          </div>
-          <div
-            className={classNames(
-              styles.table,
-              payload.dataLoaded ? "" : styles.loading
-            )}
-          >
-            {!payload.dataLoaded && (
+      <Card elevation={Elevation.THREE}>
+        <div className={styles["table-container"]}>
+          <div className={styles["table-wrapper"]}>
+            <div className={styles.filters}>
               <div>
-                <Spinner intent="Primary" size={100} />
+                <label
+                  htmlFor="event-select"
+                  className={classNames("bp3-label", styles.label)}
+                >
+                  Event
+                  <div className="bp3-select">
+                    <select
+                      id="event-select"
+                      value={filter.event}
+                      onChange={selectEvent}
+                    >
+                      {eventsList.map(event => (
+                        <option key={event.value} value={event.value}>
+                          {event.text}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </label>
+                <label
+                  htmlFor="class-select"
+                  className={classNames("bp3-label", styles.label)}
+                >
+                  Class
+                  <div className="bp3-select">
+                    <select
+                      id="class-select"
+                      value={filter.class}
+                      onChange={selectCharacterClass}
+                    >
+                      {classesList.map(classCharacter => (
+                        <option
+                          key={classCharacter.value}
+                          value={classCharacter.value}
+                        >
+                          {classCharacter.text}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </label>
               </div>
-            )}
-            {payload.dataLoaded && (
-              <Table isHardcore={filter.isHardcore} data={payload.data} />
-            )}
+              <Button icon="refresh" onClick={refreshTable}>
+                Refresh
+              </Button>
+            </div>
+            <div
+              className={classNames(
+                styles.table,
+                payload.loaded ? "" : styles.loading
+              )}
+            >
+              {!payload.loaded && (
+                <div>
+                  <Spinner intent="Primary" size={100} />
+                </div>
+              )}
+              {payload.loaded && (
+                <Table isHardcore={filter.isHardcore} data={payload.data} />
+              )}
+            </div>
+            <Pagination
+              margin={2}
+              page={filter.page}
+              count={payload.records}
+              onPageChange={changePage}
+            />
           </div>
-          <Pagination
-            margin={2}
-            page={filter.currentPage}
-            count={payload.countRecords}
-            onPageChange={changePage}
-          />
         </div>
-      </div>
+      </Card>
     </>
   );
 };

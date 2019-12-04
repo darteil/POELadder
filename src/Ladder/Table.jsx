@@ -46,6 +46,7 @@ Table.propTypes = {
           name: PropTypes.string
         }),
         character: PropTypes.shape({
+          name: PropTypes.string.isRequired,
           class: PropTypes.string.isRequired,
           level: PropTypes.number.isRequired,
           experience: PropTypes.number.isRequired
