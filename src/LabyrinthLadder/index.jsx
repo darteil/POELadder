@@ -1,32 +1,32 @@
 /* global fetch */
-import React, { useState, useEffect } from "react";
-import { Button, Spinner, Card, Elevation } from "@blueprintjs/core";
-import classNames from "classnames";
-import Header from "../Header";
-import Pagination from "../Pagination";
-import Table from "./Table";
-import styles from "../Ladder/styles.css";
+import React, { useState, useEffect } from 'react';
+import { Button, Spinner, Card, Elevation } from '@blueprintjs/core';
+import classNames from 'classnames';
+import Header from '../Header';
+import Table from './Table';
+import Pagination from '../Pagination';
+import styles from '../Ladder/styles.css';
 
-import eventsList from "../Ladder/eventsList";
-import labTypes from "./labTypes";
+import eventsList from '../Ladder/eventsList';
+import labTypes from './labTypes';
 
 const LabyrinthLadder = () => {
   const [payload, setPayload] = useState({
     data: {},
     loaded: false,
-    records: 10
+    records: 10,
   });
 
   const [filter, setFilter] = useState({
-    event: "Blight",
+    event: 'Blight',
     labType: 1,
-    page: 1
+    page: 1,
   });
 
   const fetchData = (eventId, labType, offset) => {
     setPayload({
       ...payload,
-      loaded: false
+      loaded: false,
     });
 
     const URL = `https://www.pathofexile.com/api/ladders?offset=${offset}&limit=15&id=${eventId}&type=labyrinth&difficulty=${labType}`;
@@ -37,7 +37,7 @@ const LabyrinthLadder = () => {
         setPayload({
           data,
           loaded: true,
-          records: Math.ceil(data.total / 15)
+          records: Math.ceil(data.total / 15),
         });
       })
       .catch(error => {
@@ -56,7 +56,7 @@ const LabyrinthLadder = () => {
   const changePage = pageNumber => {
     setFilter({
       ...filter,
-      page: pageNumber
+      page: pageNumber,
     });
   };
 
@@ -64,7 +64,7 @@ const LabyrinthLadder = () => {
     setFilter({
       ...filter,
       event: event.target.value,
-      page: 1
+      page: 1,
     });
   };
 
@@ -72,7 +72,7 @@ const LabyrinthLadder = () => {
     setFilter({
       ...filter,
       labType: event.target.value,
-      page: 1
+      page: 1,
     });
   };
 
@@ -80,21 +80,14 @@ const LabyrinthLadder = () => {
     <>
       <Header>Labyrinth ladder</Header>
       <Card elevation={Elevation.THREE}>
-        <div className={styles["table-container"]}>
-          <div className={styles["table-wrapper"]}>
+        <div className={styles['table-container']}>
+          <div className={styles['table-wrapper']}>
             <div className={styles.filters}>
               <div>
-                <label
-                  htmlFor="event-select"
-                  className={classNames("bp3-label", styles.label)}
-                >
+                <label htmlFor="event-select" className={classNames('bp3-label', styles.label)}>
                   Event
                   <div className="bp3-select">
-                    <select
-                      id="event-select"
-                      value={filter.event}
-                      onChange={selectEvent}
-                    >
+                    <select id="event-select" value={filter.event} onChange={selectEvent}>
                       {eventsList.map(event => (
                         <option key={event.value} value={event.value}>
                           {event.text}
@@ -103,17 +96,10 @@ const LabyrinthLadder = () => {
                     </select>
                   </div>
                 </label>
-                <label
-                  htmlFor="class-select"
-                  className={classNames("bp3-label", styles.label)}
-                >
+                <label htmlFor="class-select" className={classNames('bp3-label', styles.label)}>
                   Labyrinth type
                   <div className="bp3-select">
-                    <select
-                      id="class-select"
-                      value={filter.labType}
-                      onChange={selectLabType}
-                    >
+                    <select id="class-select" value={filter.labType} onChange={selectLabType}>
                       {labTypes.map(type => (
                         <option key={type.value} value={type.value}>
                           {type.text}
@@ -127,12 +113,7 @@ const LabyrinthLadder = () => {
                 Refresh
               </Button>
             </div>
-            <div
-              className={classNames(
-                styles.table,
-                payload.loaded ? "" : styles.loading
-              )}
-            >
+            <div className={classNames(styles.table, payload.loaded ? '' : styles.loading)}>
               {!payload.loaded && (
                 <div>
                   <Spinner intent="Primary" size={100} />
@@ -140,12 +121,7 @@ const LabyrinthLadder = () => {
               )}
               {payload.loaded && <Table data={payload.data} />}
             </div>
-            <Pagination
-              margin={2}
-              page={filter.page}
-              count={payload.records}
-              onPageChange={changePage}
-            />
+            <Pagination margin={2} page={filter.page} count={payload.records} onPageChange={changePage} />
           </div>
         </div>
       </Card>
