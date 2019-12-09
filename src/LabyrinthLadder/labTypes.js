@@ -1,20 +1,20 @@
 const labTypes = [
   {
     value: 1,
-    text: 'Normal'
+    text: 'Normal',
   },
   {
     value: 2,
-    text: 'Cruel'
+    text: 'Cruel',
   },
   {
     value: 3,
-    text: 'Merciless'
+    text: 'Merciless',
   },
   {
     value: 4,
-    text: 'Eternal'
-  }
+    text: 'Eternal',
+  },
 ];
 
 export default labTypes;
