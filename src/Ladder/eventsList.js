@@ -1,36 +1,36 @@
 const eventsList = [
   {
-    value: 'Blight',
-    text: 'Blight',
+    value: 'Metamorph',
+    text: 'Metamorph'
   },
   {
-    value: 'Hardcore+Blight',
-    text: 'Hardcore Blight',
+    value: 'Hardcore+Metamorph',
+    text: 'Hardcore Metamorph'
   },
   {
-    value: 'SSF+Blight',
-    text: 'SSF Blight',
+    value: 'SSF+Metamorph',
+    text: 'SSF Metamorph'
   },
   {
-    value: 'SSF+Blight+HC',
-    text: 'SSF Blight HC',
+    value: 'SSF+Metamorph+HC',
+    text: 'SSF Metamorph HC'
   },
   {
     value: 'Standard',
-    text: 'Standard',
+    text: 'Standard'
   },
   {
     value: 'Hardcore',
-    text: 'Hardcore',
+    text: 'Hardcore'
   },
   {
     value: 'SSF+Standard',
-    text: 'SSF Standard',
+    text: 'SSF Standard'
   },
   {
     value: 'SSF+Hardcore',
-    text: 'SSF Hardcore',
-  },
+    text: 'SSF Hardcore'
+  }
 ];
 
 export default eventsList;
