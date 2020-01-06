@@ -25,4 +25,4 @@ npm run pack
 
 ## License
 
-MIT License, Copyright (c) 2019 Romanov Yuri
+MIT License, Copyright (c) 2020 Romanov Yuri
