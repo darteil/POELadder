@@ -4,7 +4,7 @@
 
 **Electron application for viewing the Path of Exile ladder.**
 
-![](http://darteil-projects.ru/static/images/poe-ladder.png)
+![](http://darteil-projects.ru/static/images/poe-ladder-image.png)
 
 **To Use.**
 
