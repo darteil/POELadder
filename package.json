@@ -11,7 +11,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js --mode development",
     "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js --mode production",
     "eslint": "./node_modules/.bin/eslint --fix ./src",
-    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc.js ./src/**/*.jsx ./src/**/*.js --write",
+    "prettier": "./node_modules/.bin/prettier --config ./.prettierrc.js ./src/**/*.{jsx,js} ./src/*.{jsx,js} --write",
     "pack": "./node_modules/.bin/electron-builder"
   },
   "author": "Romanov Yuri",

@@ -5,5 +5,10 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'prettier/prettier': 'error'
   },
-  plugins: ['react', 'prettier', 'jsx-a11y']
+  plugins: ['react', 'prettier', 'jsx-a11y'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    }
+  }
 };
