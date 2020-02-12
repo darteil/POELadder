@@ -10,5 +10,12 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     }
+  },
+  settings: {
+    react: {
+      createClass: 'createReactClass',
+      pragma: 'React',
+      version: 'detect'
+    }
   }
 };
