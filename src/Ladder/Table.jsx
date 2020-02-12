@@ -43,20 +43,20 @@ Table.propTypes = {
     entries: PropTypes.arrayOf(
       PropTypes.shape({
         account: PropTypes.shape({
-          name: PropTypes.string,
+          name: PropTypes.string
         }),
         character: PropTypes.shape({
           name: PropTypes.string.isRequired,
           class: PropTypes.string.isRequired,
           level: PropTypes.number.isRequired,
-          experience: PropTypes.number.isRequired,
+          experience: PropTypes.number.isRequired
         }),
         dead: PropTypes.bool.isRequired,
         online: PropTypes.bool.isRequired,
-        rank: PropTypes.number.isRequired,
-      }),
-    ),
-  }),
+        rank: PropTypes.number.isRequired
+      })
+    )
+  })
 };
 
 export default Table;

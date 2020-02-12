@@ -1,36 +1,36 @@
 const classesList = [
   {
     value: 'all',
-    text: 'All',
+    text: 'All'
   },
   {
     value: 0,
-    text: 'Scion',
+    text: 'Scion'
   },
   {
     value: 1,
-    text: 'Marauder',
+    text: 'Marauder'
   },
   {
     value: 2,
-    text: 'Ranger',
+    text: 'Ranger'
   },
   {
     value: 3,
-    text: 'Witch',
+    text: 'Witch'
   },
   {
     value: 4,
-    text: 'Duelist',
+    text: 'Duelist'
   },
   {
     value: 5,
-    text: 'Templar',
+    text: 'Templar'
   },
   {
     value: 6,
-    text: 'Shadow',
-  },
+    text: 'Shadow'
+  }
 ];
 
 export default classesList;

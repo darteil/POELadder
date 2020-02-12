@@ -82,7 +82,7 @@ const Pagination = props => {
         onClick={onPageChange}
       >
         {i}
-      </button>,
+      </button>
     );
   }
 
@@ -103,7 +103,7 @@ Pagination.propTypes = {
   count: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
   margin: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
+  onPageChange: PropTypes.func.isRequired
 };
 
 export default Pagination;

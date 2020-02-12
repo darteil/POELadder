@@ -14,19 +14,19 @@ const LabyrinthLadder = () => {
   const [payload, setPayload] = useState({
     data: {},
     loaded: false,
-    records: 10,
+    records: 10
   });
 
   const [filter, setFilter] = useState({
     event: 'Metamorph',
     labType: 1,
-    page: 1,
+    page: 1
   });
 
   const fetchData = (eventId, labType, offset) => {
     setPayload({
       ...payload,
-      loaded: false,
+      loaded: false
     });
 
     const URL = `https://www.pathofexile.com/api/ladders?offset=${offset}&limit=15&id=${eventId}&type=labyrinth&difficulty=${labType}`;
@@ -37,7 +37,7 @@ const LabyrinthLadder = () => {
         setPayload({
           data,
           loaded: true,
-          records: Math.ceil(data.total / 15),
+          records: Math.ceil(data.total / 15)
         });
       })
       .catch(error => {
@@ -56,7 +56,7 @@ const LabyrinthLadder = () => {
   const changePage = pageNumber => {
     setFilter({
       ...filter,
-      page: pageNumber,
+      page: pageNumber
     });
   };
 
@@ -64,7 +64,7 @@ const LabyrinthLadder = () => {
     setFilter({
       ...filter,
       event: event.target.value,
-      page: 1,
+      page: 1
     });
   };
 
@@ -72,7 +72,7 @@ const LabyrinthLadder = () => {
     setFilter({
       ...filter,
       labType: event.target.value,
-      page: 1,
+      page: 1
     });
   };
 

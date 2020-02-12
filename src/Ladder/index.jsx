@@ -14,20 +14,20 @@ const Ladder = () => {
   const [payload, setPayload] = useState({
     data: {},
     loaded: false,
-    records: 10,
+    records: 10
   });
 
   const [filter, setFilter] = useState({
     isHardcore: false,
     class: 'all',
     page: 1,
-    event: 'Metamorph',
+    event: 'Metamorph'
   });
 
   const fetchData = (eventId, classValue, offset) => {
     setPayload({
       ...payload,
-      loaded: false,
+      loaded: false
     });
 
     const URL =
@@ -41,7 +41,7 @@ const Ladder = () => {
         setPayload({
           data,
           loaded: true,
-          records: Math.ceil(data.total / 15),
+          records: Math.ceil(data.total / 15)
         });
       });
   };
@@ -57,7 +57,7 @@ const Ladder = () => {
   const changePage = pageNumber => {
     setFilter({
       ...filter,
-      page: pageNumber,
+      page: pageNumber
     });
   };
 
@@ -73,7 +73,7 @@ const Ladder = () => {
       ...filter,
       event: selectedEvent,
       isHardcore,
-      page: 1,
+      page: 1
     });
   };
 
@@ -81,7 +81,7 @@ const Ladder = () => {
     setFilter({
       ...filter,
       class: event.target.value,
-      page: 1,
+      page: 1
     });
   };
 

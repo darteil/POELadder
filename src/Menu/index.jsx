@@ -32,7 +32,7 @@ const Menu = props => (
 );
 
 Menu.propTypes = {
-  history: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default withRouter(Menu);
