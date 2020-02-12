@@ -38,7 +38,7 @@ const Table = props => (
 );
 
 Table.propTypes = {
-  isHardcore: PropTypes.bool.isRequired,
+  isHardcoreEvent: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     entries: PropTypes.arrayOf(
       PropTypes.shape({
