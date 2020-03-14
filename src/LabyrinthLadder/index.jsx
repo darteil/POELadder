@@ -18,7 +18,7 @@ const LabyrinthLadder = () => {
   });
 
   const [filter, setFilter] = useState({
-    event: 'Metamorph',
+    event: 'Delirium',
     labType: 1,
     page: 1
   });

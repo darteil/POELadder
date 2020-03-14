@@ -1,19 +1,19 @@
 const eventsList = [
   {
-    value: 'Metamorph',
-    text: 'Metamorph'
+    value: 'Delirium',
+    text: 'Delirium'
   },
   {
-    value: 'Hardcore+Metamorph',
-    text: 'Hardcore Metamorph'
+    value: 'Hardcore+Delirium',
+    text: 'Hardcore Delirium'
   },
   {
-    value: 'SSF+Metamorph',
-    text: 'SSF Metamorph'
+    value: 'SSF+Delirium',
+    text: 'SSF Delirium'
   },
   {
-    value: 'SSF+Metamorph+HC',
-    text: 'SSF Metamorph HC'
+    value: 'SSF+Delirium+HC',
+    text: 'SSF Delirium HC'
   },
   {
     value: 'Standard',
