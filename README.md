@@ -6,7 +6,7 @@
 
 ![](http://darteil-projects.ru/static/images/poe-ladder-image.png)
 
-**To Use.**
+**Developing:**
 
 ```bash
 # Install dependencies
