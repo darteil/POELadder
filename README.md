@@ -6,13 +6,13 @@
 
 ![](http://darteil-projects.ru/static/images/poe-ladder-image.png)
 
-**Developing:**
+**Development:**
 
 ```bash
 # Install dependencies
 npm install
 
-# Run the app
+# Run
 npm run prod
 npm start
 
