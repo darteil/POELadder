@@ -18,7 +18,7 @@ const LabyrinthLadder = () => {
   });
 
   const [filter, setFilter] = useState({
-    event: 'Delirium',
+    event: 'Harvest',
     labType: 1,
     page: 1
   });
