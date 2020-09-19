@@ -21,7 +21,7 @@ const Ladder = () => {
     isHardcore: false,
     class: 'all',
     page: 1,
-    event: 'Harvest'
+    event: 'Heist'
   });
 
   const fetchData = (eventId, classValue, offset) => {
@@ -64,8 +64,8 @@ const Ladder = () => {
   const selectEvent = event => {
     const selectedEvent = event.target.value;
     const isHardcore =
-      selectedEvent === 'Hardcore+Harvest' ||
-      selectedEvent === 'SSF+Harvest+HC' ||
+      selectedEvent === 'Hardcore+Heist' ||
+      selectedEvent === 'SSF+Heist+HC' ||
       selectedEvent === 'Hardcore' ||
       selectedEvent === 'SSF+Hardcore';
 
