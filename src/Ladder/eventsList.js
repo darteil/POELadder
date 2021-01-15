@@ -1,19 +1,19 @@
 const eventsList = [
   {
-    value: 'Heist',
-    text: 'Heist'
+    value: 'Ritual',
+    text: 'Ritual'
   },
   {
-    value: 'Hardcore+Heist',
-    text: 'Hardcore Heist'
+    value: 'Hardcore+Ritual',
+    text: 'Hardcore Ritual'
   },
   {
-    value: 'SSF+Heist',
-    text: 'SSF Heist'
+    value: 'SSF+Ritual',
+    text: 'SSF Ritual'
   },
   {
-    value: 'SSF+Heist+HC',
-    text: 'SSF Heist HC'
+    value: 'SSF+Ritual+HC',
+    text: 'SSF Ritual HC'
   },
   {
     value: 'Standard',
