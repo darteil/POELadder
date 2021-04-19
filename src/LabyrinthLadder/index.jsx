@@ -18,7 +18,7 @@ const LabyrinthLadder = () => {
   });
 
   const [filter, setFilter] = useState({
-    event: 'Ritual',
+    event: 'Ultimatum',
     labType: 1,
     page: 1
   });
