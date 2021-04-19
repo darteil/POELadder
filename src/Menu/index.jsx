@@ -18,15 +18,6 @@ const Menu = props => (
       >
         Ladder
       </button>
-      <button
-        type="button"
-        className="bp3-button bp3-minimal bp3-icon-layout-auto"
-        onClick={() => {
-          props.history.push('/lab-ladder');
-        }}
-      >
-        Lab Ladder
-      </button>
     </div>
   </nav>
 );
