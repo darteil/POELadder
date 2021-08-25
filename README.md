@@ -1,3 +1,5 @@
+This repository has been archived
+
 # POE Ladder
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/darteil/POELadder/blob/master/LICENSE.md) [![GitHub release](https://img.shields.io/github/release/darteil/POELadder)](https://github.com/darteil/POELadder/releases)
